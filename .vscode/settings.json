@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 {
     "files.associations": {
         "stdint.h": "c",
         "include.h": "c",
         "tm4c123gh6pm.h": "c"
     }
+=======
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "include.h": "c",
+        "tm4c123gh6pm.h": "c",
+        "core_cm4.h": "c"
+    }
+>>>>>>> upstream/master
 }
