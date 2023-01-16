@@ -56,7 +56,7 @@ all: ${COMPILER}
 all: ${COMPILER}/project0.axf
 
 #
-# The rule to build project with debug support.
+# The rule to build project with debug support. Whack
 #
 
 debug: CFLAGS+=-g -D DEBUG

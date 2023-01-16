@@ -1,17 +1,16 @@
-
 #include "lib/include.h"
 
 unsigned long Led;
 
 void Delay(void){unsigned long volatile time;
-  time = 1600000;
+  time = 1600000; //lo que dura 1000 ms
   while(time){
 		time--;
   }
 }
 
-int main(void){
-
+int main(void)
+{
   SYSCTL->RCGCGPIO |=(1<<5);
   //SYSCTL->RCGC2 |= 0x00000020;
  // SYSCTL_RCGC2_R |= 0x00000020;     // 1) activate clock for Port F
@@ -23,20 +22,29 @@ int main(void){
   GPIO_PORTF_AFSEL_R = 0x00;        // 6) disable alt funct on PF7-0
   GPIO_PORTF_PUR_R = 0x11;          // enable pull-up on PF0 and PF4
   GPIO_PORTF_DEN_R = 0x1F;          // 7) enable digital I/O on PF4-0
-  while(1){
-   //if(PF4 == 0x0){
-    Led = 0x02;            // reverse value of LED
-    GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
-    Delay();
-    Led = 0x04;            // reverse value of LED
-    GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
-    Delay();
-    Led = 0x08;            // reverse value of LED
-    GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
-    Delay();
-    Led = 0x0A;            // reverse value of LED
-    GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
-    Delay();
-   // }
+  while(1)
+  {
+  Led = 0x02;            // reverse value of LED Alto
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x06;            // reverse value of LED
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x04;            // reverse value of LED Siga
+  GPIO_PORTF_DATA_R = Led;   // w<rite value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x0C;            // reverse value of LED
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x08;            // reverse value of LED Pisele
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x0A;            // reverse value of LED
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+  Led = 0x0E;            // reverse value of LED Pisele
+  GPIO_PORTF_DATA_R = Led;   // write value to PORTF DATA register,toggle led
+  Delay();
+
   }
 }
